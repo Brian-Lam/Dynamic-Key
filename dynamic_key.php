@@ -1,7 +1,6 @@
 <?php
 
 class DynamicKey{
-
 	$key_file = "dynamic_key/ServerKey";
 	$date_file = "dynamic_key/KeyDate";
 	$date_format = "F j, Y, g:i a";
@@ -62,14 +61,14 @@ class DynamicKey{
 	 * Change the default Key file location
 	 * @param string $file_location
 	 * 
-	 *	@return string $key 	The most up-to-date key on the server
+	 *	@return $this
 	 */
-	function setKeyfile($file_location) {
+	function setKeyFile($file_location) {
 		if (!is_string($file_location)) {
 			throw new Exception("Invalid File Location");
 		} else {
 			$this->key_file = $file_location;
-			return retrieveKey();
+			return $this;
 		}
 	}
 
@@ -77,14 +76,14 @@ class DynamicKey{
 	 * Change the default Date file location
 	 * @param string $file_location
 	 * 
-	 *	@return string $key 	The most up-to-date key on the server
+	 *	@return $this
 	 */
-	function setDatefile($file_location) {
+	function setDateFile($file_location) {
 		if (!is_string($file_location)) {
 			throw new Exception("Invalid File Location");
 		} else {
 			$this->date_file = $file_location;
-			return retrieveKey();
+			return $this;
 		}
 	}
 
@@ -92,14 +91,14 @@ class DynamicKey{
 	 * Change the default timestamp_format
 	 * @param string $date_format 	Example: "F j, Y, g:i a"
 	 * 
-	 *	@return string $key 	The most up-to-date key on the server
+	 *	@return $this
 	 */
-	function setDatefile($date_format) {
+	function setDateFormat($date_format) {
 		if (!(bool)strtotime($date_format)) {
 			throw new Exception("Invalid Date Format");
 		} else {
 			$this->date_format = $date_format;
-			return retrieveKey();
+			return $this;
 		}
 	}
 
@@ -108,14 +107,14 @@ class DynamicKey{
 	 * @param string $key_life	string representation of key life. A key life of
 	 							1 hour should be represented as "-1 hours"
 	 * 
-	 *	@return string $key 	The most up-to-date key on the server
+	 *	@return $this
 	 */
-	function setDatefile($key_life) {
+	function setKeyLife($key_life) {
 		if (!(bool)strtotime($key_life)) {
 			throw new Exception("Invalid Timestamp");
 		} else {
 			$this->key_life = $key_life;
-			return retrieveKey();
+			return $this;
 		}
 	}
 
