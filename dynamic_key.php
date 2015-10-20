@@ -48,7 +48,7 @@ class DynamicKey{
 			if ($date < $key_life) {
 				return storeNewKey();
 			} else {
-				$key = strtotime(file_get_contents($this->keyfile));
+				$key = file_get_contents($this->keyfile);
 				return $key;
 			}
 		} else {
